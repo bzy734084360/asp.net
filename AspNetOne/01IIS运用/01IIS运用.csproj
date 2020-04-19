@@ -68,13 +68,46 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Index.html" />
+    <Content Include="List.html" />
+    <Content Include="PostDemo.html" />
+    <Content Include="SelfAdd.html" />
+    <Content Include="ShowDetail.html" />
+    <Content Include="UserInfoList.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accept.ashx.cs">
+      <DependentUpon>Accept.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="First.ashx.cs">
+      <DependentUpon>First.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="List.ashx.cs">
+      <DependentUpon>List.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Postdemo.ashx.cs">
+      <DependentUpon>Postdemo.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelfAdd.ashx.cs">
+      <DependentUpon>SelfAdd.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoDetail.ashx.cs">
+      <DependentUpon>UserInfoDetail.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfoList.ashx.cs">
+      <DependentUpon>UserInfoList.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="First.ashx" />
+    <Content Include="List.ashx" />
+    <Content Include="Accept.ashx" />
     <None Include="packages.config" />
+    <Content Include="Postdemo.ashx" />
+    <Content Include="SelfAdd.ashx" />
+    <Content Include="UserInfoList.ashx" />
+    <Content Include="UserInfoDetail.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
