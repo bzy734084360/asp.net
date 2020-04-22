@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{08FCF683-5089-4A4A-B162-52A9E9962ADB}</ProjectGuid>
+    <ProjectGuid>{38B64C01-5062-4719-8728-30EC49B73D13}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_01IIS运用</RootNamespace>
-    <AssemblyName>01IIS运用</AssemblyName>
+    <RootNamespace>Project.WebApp</RootNamespace>
+    <AssemblyName>Project.WebApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44388</IISExpressSSLPort>
+    <IISExpressSSLPort>44309</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -68,62 +68,38 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddUserInfo.html" />
+    <Content Include="Css\tableStyle.css" />
     <Content Include="Error.html" />
-    <Content Include="Index.html" />
     <Content Include="JQuery\jquery-3.4.1.js" />
     <Content Include="JQuery\jquery-3.4.1.min.js" />
-    <Content Include="List.html" />
-    <Content Include="PostDemo.html" />
-    <Content Include="SelfAdd.html" />
-    <Content Include="ShowDetail.html" />
-    <Content Include="UserInfoList.html" />
+    <Content Include="UserInfoListModel.html" />
     <Content Include="UserInfoUpdate.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accept.ashx.cs">
-      <DependentUpon>Accept.ashx</DependentUpon>
-    </Compile>
     <Compile Include="AddUserInfo.ashx.cs">
       <DependentUpon>AddUserInfo.ashx</DependentUpon>
     </Compile>
-    <Compile Include="DeleteUserInfo.ashx.cs">
-      <DependentUpon>DeleteUserInfo.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="First.ashx.cs">
-      <DependentUpon>First.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="List.ashx.cs">
-      <DependentUpon>List.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="Postdemo.ashx.cs">
-      <DependentUpon>Postdemo.ashx</DependentUpon>
+    <Compile Include="EditUserInfo.ashx.cs">
+      <DependentUpon>EditUserInfo.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelfAdd.ashx.cs">
-      <DependentUpon>SelfAdd.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="UserInfoDetail.ashx.cs">
-      <DependentUpon>UserInfoDetail.ashx</DependentUpon>
-    </Compile>
     <Compile Include="UserInfoList.ashx.cs">
       <DependentUpon>UserInfoList.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteUserInfo.ashx.cs">
+      <DependentUpon>DeleteUserInfo.ashx</DependentUpon>
     </Compile>
     <Compile Include="UserInfoUpdate.ashx.cs">
       <DependentUpon>UserInfoUpdate.ashx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="First.ashx" />
-    <Content Include="List.ashx" />
-    <Content Include="Accept.ashx" />
     <Content Include="AddUserInfo.ashx" />
-    <Content Include="DeleteUserInfo.ashx" />
+    <Content Include="EditUserInfo.ashx" />
     <None Include="packages.config" />
-    <Content Include="Postdemo.ashx" />
-    <Content Include="SelfAdd.ashx" />
     <Content Include="UserInfoList.ashx" />
-    <Content Include="UserInfoDetail.ashx" />
+    <Content Include="DeleteUserInfo.ashx" />
     <Content Include="UserInfoUpdate.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -131,6 +107,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Project.BLL\Project.BLL.csproj">
+      <Project>{a954526e-1463-411a-8bda-564f313a7f48}</Project>
+      <Name>Project.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Project.Model\Project.Model.csproj">
+      <Project>{a97aa6b9-6bca-434a-979b-c8b9525bf428}</Project>
+      <Name>Project.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -145,9 +131,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>64585</DevelopmentServerPort>
+          <DevelopmentServerPort>54411</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44388/</IISUrl>
+          <IISUrl>https://localhost:44309/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

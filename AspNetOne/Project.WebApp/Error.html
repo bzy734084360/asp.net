@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="JQuery/jquery-3.4.1.js"></script>
+    <title></title>
+    <script>
+        $(function () {
+            var num = $("#spanValue").text();
+            t = setInterval(function () {
+                num--;
+                if (num == 0) {
+                    window.location.href = "UserInfoList.ashx";
+                }
+                else {
+                    $("#spanValue").text(num);
+                }
+            }, 1000);
+        })
+    </script>
+</head>
+<body>
+    服务器忙啊啊啊！！！！
+    <span style="font-size:20px;color:red;font-weight:bolder" id="spanValue">5</span>秒钟以后自动跳转到<a href="UserInfoList.ashx">列表页面</a>
+</body>
+</html>

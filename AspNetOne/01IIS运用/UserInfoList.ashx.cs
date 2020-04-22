@@ -31,7 +31,9 @@ namespace _01IIS运用
                     {
                         sb.Append($"<tr><td>{da.Rows[i]["UserId"].ToString()}</td><td>{da.Rows[i]["UserName"].ToString()}</td><td>" +
                             $"{da.Rows[i]["UserPwd"].ToString()}</td><td>{Convert.ToDateTime(da.Rows[i]["RegDate"]).ToString("yyyy-MM-dd")}</td>" +
-                            $"<td><a href='UserInfoDetail.ashx?id={da.Rows[i]["UserId"].ToString()}'>详细</a></td></tr>");
+                            $"<td><a href='UserInfoDetail.ashx?id={da.Rows[i]["UserId"].ToString()}'>详细</a></td>" +
+                            $"<td><a href='UserInfoUpdate.ashx?id={da.Rows[i]["UserId"].ToString()}&type=1'>修改</a></td>" +
+                            $"<td><a href='DeleteUserInfo.ashx?id={da.Rows[i]["UserId"].ToString()}' class='deletes'>删除</a></td></tr>");
                     }
                     string filePath = context.Request.MapPath("UserInfoList.html");
                     string fileContent = File.ReadAllText(filePath);
