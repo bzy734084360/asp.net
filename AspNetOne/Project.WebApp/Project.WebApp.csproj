@@ -72,6 +72,8 @@
     <Content Include="Error.html" />
     <Content Include="JQuery\jquery-3.4.1.js" />
     <Content Include="JQuery\jquery-3.4.1.min.js" />
+    <Content Include="Login.html" />
+    <Content Include="UpLoading\FileUp.html" />
     <Content Include="UserInfoListModel.html" />
     <Content Include="UserInfoUpdate.html" />
     <Content Include="Web.config" />
@@ -84,6 +86,15 @@
       <DependentUpon>EditUserInfo.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpLoading\CreateImage.ashx.cs">
+      <DependentUpon>CreateImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UpLoading\FileUpLoad.ashx.cs">
+      <DependentUpon>FileUpLoad.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UpLoading\Thumb.ashx.cs">
+      <DependentUpon>Thumb.ashx</DependentUpon>
+    </Compile>
     <Compile Include="UserInfoList.ashx.cs">
       <DependentUpon>UserInfoList.ashx</DependentUpon>
     </Compile>
@@ -93,6 +104,9 @@
     <Compile Include="UserInfoUpdate.ashx.cs">
       <DependentUpon>UserInfoUpdate.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ValidataCode.ashx.cs">
+      <DependentUpon>ValidataCode.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddUserInfo.ashx" />
@@ -101,6 +115,10 @@
     <Content Include="UserInfoList.ashx" />
     <Content Include="DeleteUserInfo.ashx" />
     <Content Include="UserInfoUpdate.ashx" />
+    <Content Include="UpLoading\FileUpLoad.ashx" />
+    <Content Include="UpLoading\CreateImage.ashx" />
+    <Content Include="UpLoading\Thumb.ashx" />
+    <Content Include="ValidataCode.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -113,10 +131,17 @@
       <Project>{a954526e-1463-411a-8bda-564f313a7f48}</Project>
       <Name>Project.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Project.Common\Project.Common.csproj">
+      <Project>{22ea0bf2-63eb-45c0-9de9-70a0c9568441}</Project>
+      <Name>Project.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Project.Model\Project.Model.csproj">
       <Project>{a97aa6b9-6bca-434a-979b-c8b9525bf428}</Project>
       <Name>Project.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ImageUp\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="JQuery/jquery-3.4.1.js"></script>
+    <script>
+        window.onload = function () {
+            var validate = document.getElementById("vailidatecode");
+            validate.onclick = function () {
+                var code = document.getElementById("code");
+                code.src = "ValidataCode.ashx?r=" + new Date().getMilliseconds();
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="Login.ashx" method="post">
+        用户名：<input type="text" name="txtName" />
+        <br />
+        密码：<input type="text" name="txtPwd" />
+        <br />
+        验证码：<input type="text" name="txtCode" />
+        <br />
+        <img src="ValidataCode.ashx" alt="Alternate Text" id="code" />
+        <a href="javascript:void(0)" id="vailidatecode">看不清</a>
+        <br />
+        <input type="submit" value="登录" />
+    </form>
+</body>
+</html>
