@@ -68,12 +68,63 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddUserInfo.html" />
+    <Content Include="aspx\AddUserInfo.aspx" />
+    <Content Include="aspx\EditUserInfo.aspx" />
+    <Content Include="aspx\Index.aspx" />
+    <Content Include="aspx\NewList.aspx" />
+    <Content Include="aspx\WebDemos\flash\main_fla.swf" />
+    <Content Include="aspx\WebDemos\flash\sub_fla.swf" />
+    <Content Include="aspx\WebDemos\Html\News.html" />
+    <Content Include="aspx\WebDemos\Html\Shownews.html" />
+    <Content Include="aspx\WebDemos\images\bg_a_list_prd_dt.png" />
+    <Content Include="aspx\WebDemos\images\bg_body.png" />
+    <Content Include="aspx\WebDemos\images\bg_body_column.png" />
+    <Content Include="aspx\WebDemos\images\bg_dotlightblue.gif" />
+    <Content Include="aspx\WebDemos\images\bg_footer_column.png" />
+    <Content Include="aspx\WebDemos\images\bg_header_Client.jpg" />
+    <Content Include="aspx\WebDemos\images\bg_header_company.jpg" />
+    <Content Include="aspx\WebDemos\images\bg_header_Contact.jpg" />
+    <Content Include="aspx\WebDemos\images\bg_header_Employment.jpg" />
+    <Content Include="aspx\WebDemos\images\bg_header_News.jpg" />
+    <Content Include="aspx\WebDemos\images\bg_header_Product.jpg" />
+    <Content Include="aspx\WebDemos\images\bg_header_Service.jpg" />
+    <Content Include="aspx\WebDemos\images\bg_main_column.gif" />
+    <Content Include="aspx\WebDemos\images\bg_position.png" />
+    <Content Include="aspx\WebDemos\images\bg_position_product.png" />
+    <Content Include="aspx\WebDemos\images\bg_title_column.png" />
+    <Content Include="aspx\WebDemos\images\bg_wrap_index.jpg" />
+    <Content Include="aspx\WebDemos\images\icon_dot_blue.png" />
+    <Content Include="aspx\WebDemos\images\icon_dot_gray.gif" />
+    <Content Include="aspx\WebDemos\images\icon_drgegray.png" />
+    <Content Include="aspx\WebDemos\images\img_contact_sidebarcolumn.png" />
+    <Content Include="aspx\WebDemos\images\img_copyright_column.png" />
+    <Content Include="aspx\WebDemos\images\img_copyright_index.png" />
+    <Content Include="aspx\WebDemos\images\img_prd_HousingSecurity.jpg" />
+    <Content Include="aspx\WebDemos\images\img_prd_MaintenanceFunds.jpg" />
+    <Content Include="aspx\WebDemos\images\img_prd_Mapping.jpg" />
+    <Content Include="aspx\WebDemos\images\img_prd_NewHouse.jpg" />
+    <Content Include="aspx\WebDemos\images\img_prd_Practitioners.jpg" />
+    <Content Include="aspx\WebDemos\images\img_prd_ProjectManagement.jpg" />
+    <Content Include="aspx\WebDemos\images\img_prd_Property.jpg" />
+    <Content Include="aspx\WebDemos\images\img_prd_Statistics.jpg" />
+    <Content Include="aspx\WebDemos\images\img_prd_StockHouse.jpg" />
+    <Content Include="aspx\WebDemos\images\img_prd_Transaction.jpg" />
+    <Content Include="aspx\WebDemos\images\logo.png" />
+    <Content Include="aspx\WebDemos\images\nav_column.png" />
+    <Content Include="aspx\WebDemos\images\nav_index.png" />
+    <Content Include="aspx\WebDemos\images\top-2.gif" />
+    <Content Include="aspx\WebDemos\style\CommonStyle.css" />
+    <Content Include="aspx\WebDemos\style\pageStyle.css" />
+    <Content Include="aspx\WebDemos\style\style.css" />
+    <Content Include="Css\PageBarStyle.css" />
     <Content Include="Css\tableStyle.css" />
     <Content Include="Error.html" />
     <Content Include="JQuery\jquery-3.4.1.js" />
     <Content Include="JQuery\jquery-3.4.1.min.js" />
     <Content Include="Login.html" />
+    <Content Include="UpLoading\DownLoadFile.html" />
     <Content Include="UpLoading\FileUp.html" />
+    <Content Include="UpLoading\webstrom激活码.txt" />
     <Content Include="UserInfoListModel.html" />
     <Content Include="UserInfoUpdate.html" />
     <Content Include="Web.config" />
@@ -82,12 +133,46 @@
     <Compile Include="AddUserInfo.ashx.cs">
       <DependentUpon>AddUserInfo.ashx</DependentUpon>
     </Compile>
+    <Compile Include="aspx\AddUserInfo.aspx.cs">
+      <DependentUpon>AddUserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\AddUserInfo.aspx.designer.cs">
+      <DependentUpon>AddUserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\DeleteUserInfo.ashx.cs">
+      <DependentUpon>DeleteUserInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\EditUserInfo.aspx.cs">
+      <DependentUpon>EditUserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\EditUserInfo.aspx.designer.cs">
+      <DependentUpon>EditUserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="aspx\NewList.aspx.cs">
+      <DependentUpon>NewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="aspx\NewList.aspx.designer.cs">
+      <DependentUpon>NewList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditUserInfo.ashx.cs">
       <DependentUpon>EditUserInfo.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UpLoading\CreateImage.ashx.cs">
       <DependentUpon>CreateImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="UpLoading\DownLoad.ashx.cs">
+      <DependentUpon>DownLoad.ashx</DependentUpon>
     </Compile>
     <Compile Include="UpLoading\FileUpLoad.ashx.cs">
       <DependentUpon>FileUpLoad.ashx</DependentUpon>
@@ -111,6 +196,8 @@
   <ItemGroup>
     <Content Include="AddUserInfo.ashx" />
     <Content Include="EditUserInfo.ashx" />
+    <Content Include="aspx\DeleteUserInfo.ashx" />
+    <Content Include="aspx\WebDemos\images\vssver2.scc" />
     <None Include="packages.config" />
     <Content Include="UserInfoList.ashx" />
     <Content Include="DeleteUserInfo.ashx" />
@@ -119,6 +206,8 @@
     <Content Include="UpLoading\CreateImage.ashx" />
     <Content Include="UpLoading\Thumb.ashx" />
     <Content Include="ValidataCode.ashx" />
+    <Content Include="UpLoading\DownLoad.ashx" />
+    <Content Include="UpLoading\webstrom激活码.zip" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -141,6 +230,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Browsers\" />
     <Folder Include="ImageUp\" />
   </ItemGroup>
   <PropertyGroup>

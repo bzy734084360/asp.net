@@ -55,6 +55,7 @@ namespace Project.DAL
             string sql = $"delete from userInfo where Userid=@Id";
             return SqlHelper.ExecuteNonQuery(sql, CommandType.Text, new SqlParameter("@Id", id));
         }
+
         /// <summary>
         /// 根据用户编号查询用户信息
         /// </summary>
@@ -71,6 +72,39 @@ namespace Project.DAL
                 LoadEntity(tb.Rows[0], userInfo);
             }
             return userInfo;
+        }
+        /// <summary>
+        /// 获取总的记录数
+        /// </summary>
+        /// <returns></returns>
+        public int GetRecordCount()
+        {
+            string sql = "select count(*) from userinfo";
+            return SqlHelper.ExecuteScalar(sql, CommandType.Text);
+        }
+
+        public List<UserInfo> GetPageList(int start, int end)
+        {
+            string sql = "select *from  (select ROW_NUMBER() over(order by Userid)rowIndex,* from UserInfo )a " +
+                "where rowIndex between @start  and @end";
+            SqlParameter[] pars = {
+                new SqlParameter("@start", start),
+                new SqlParameter("@end", end),
+            };
+            DataTable table = SqlHelper.GetDataTable(sql, System.Data.CommandType.Text, pars);
+            List<UserInfo> list = null;
+            if (table.Rows.Count > 0)
+            {
+                list = new List<UserInfo>();
+                UserInfo userInfo = null;
+                foreach (DataRow item in table.Rows)
+                {
+                    userInfo = new UserInfo();
+                    LoadEntity(item, userInfo);
+                    list.Add(userInfo);
+                }
+            }
+            return list;
         }
 
         public int EditUserInfoModel(UserInfo userInfo)

@@ -50,5 +50,31 @@ namespace Project.BLL
         {
             return UserInfoDal.EditUserInfoModel(userInfo) > 0;
         }
+        /// <summary>
+        /// 获取总的记录数
+        /// </summary>
+        /// <param name="pageSize">每页显示记录数</param>
+        /// <returns></returns>
+        public int GetPageCount(int pageSize)
+        {
+            //获取总记录数
+            int recordCount = UserInfoDal.GetRecordCount();
+            //总页数
+            //int pageCount = recordCount % pageSize > 0 ? recordCount / pageSize + 1 : recordCount / pageSize;
+            int pageCount = (int)Math.Ceiling((double)recordCount / pageSize);
+            return pageCount;
+        }
+        /// <summary>
+        /// 获取指定范围内的数据
+        /// </summary>
+        /// <param name="pageIndex">当前页码</param>
+        /// <param name="pageSize">每页显示记录数</param>
+        /// <returns></returns>
+        public List<UserInfo> GetPageList(int pageIndex, int pageSize)
+        {
+            int start = (pageIndex - 1) * pageSize + 1;
+            int end = pageIndex * pageSize;
+            return UserInfoDal.GetPageList(start, end);
+        }
     }
 }

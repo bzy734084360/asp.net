@@ -45,5 +45,22 @@ namespace Project.DAL
                 }
             }
         }
+        public static int ExecuteScalar(string sql, CommandType type, params SqlParameter[] pars)
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.CommandType = type;
+                    if (pars != null)
+                    {
+                        cmd.Parameters.AddRange(pars);
+                    }
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+
     }
 }
