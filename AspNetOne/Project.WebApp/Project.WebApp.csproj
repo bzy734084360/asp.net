@@ -68,6 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddUserInfo.html" />
+    <Content Include="Ajax\AjaxDemo.aspx" />
+    <Content Include="Ajax\AjaxPostDemo.aspx" />
+    <Content Include="Ajax\JqueryAjax.aspx" />
+    <Content Include="Ajax\LoginAjax.html" />
+    <Content Include="Ajax\Register.aspx" />
+    <Content Include="Ajax\ShowDate.aspx" />
     <Content Include="aspx\AddUserInfo.aspx" />
     <Content Include="aspx\EditUserInfo.aspx" />
     <Content Include="aspx\Index.aspx" />
@@ -144,6 +150,50 @@
   <ItemGroup>
     <Compile Include="AddUserInfo.ashx.cs">
       <DependentUpon>AddUserInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\AjaxDemo.aspx.cs">
+      <DependentUpon>AjaxDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\AjaxDemo.aspx.designer.cs">
+      <DependentUpon>AjaxDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\AjaxPostDemo.aspx.cs">
+      <DependentUpon>AjaxPostDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\AjaxPostDemo.aspx.designer.cs">
+      <DependentUpon>AjaxPostDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\CheckUserName.ashx.cs">
+      <DependentUpon>CheckUserName.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\GetDate.ashx.cs">
+      <DependentUpon>GetDate.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\JqueryAjax.aspx.cs">
+      <DependentUpon>JqueryAjax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\JqueryAjax.aspx.designer.cs">
+      <DependentUpon>JqueryAjax.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\ShowDate.aspx.cs">
+      <DependentUpon>ShowDate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\ShowDate.aspx.designer.cs">
+      <DependentUpon>ShowDate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\UserLoginAjax.ashx.cs">
+      <DependentUpon>UserLoginAjax.ashx</DependentUpon>
     </Compile>
     <Compile Include="aspx\AddUserInfo.aspx.cs">
       <DependentUpon>AddUserInfo.aspx</DependentUpon>
@@ -222,6 +272,9 @@
     <Compile Include="Request与Response其他成员\UrlRefer.aspx.designer.cs">
       <DependentUpon>UrlRefer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SessionDemo\LogOut.ashx.cs">
+      <DependentUpon>LogOut.ashx</DependentUpon>
+    </Compile>
     <Compile Include="SessionDemo\SessionDemo.aspx.cs">
       <DependentUpon>SessionDemo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -290,6 +343,9 @@
     <Content Include="EditUserInfo.ashx" />
     <Content Include="aspx\DeleteUserInfo.ashx" />
     <Content Include="aspx\WebDemos\images\vssver2.scc" />
+    <Content Include="Ajax\GetDate.ashx" />
+    <Content Include="Ajax\CheckUserName.ashx" />
+    <Content Include="Ajax\UserLoginAjax.ashx" />
     <None Include="packages.config" />
     <Content Include="UserInfoList.ashx" />
     <Content Include="DeleteUserInfo.ashx" />
@@ -301,6 +357,7 @@
     <Content Include="UpLoading\DownLoad.ashx" />
     <Content Include="UpLoading\webstrom激活码.zip" />
     <Content Include="SessionDemo\ValidateImageCode.ashx" />
+    <Content Include="SessionDemo\LogOut.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

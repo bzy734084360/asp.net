@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../JQuery/jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            $("#idSpanName").css("display", "none");
+            $("#btnLogin").click(function () {
+                userLogin();
+            });
+        });
+        function userLogin() {
+            var userName = $("#idTxtName").val();
+            var userPwd = $("#idTxtPwd").val();
+            if (userName != "" && userPwd != "") {
+                $.ajax({
+                    type: "POST",
+                    url: "UserLoginAjax.ashx",
+                    data: { "userName": userName, "userPwd": userPwd },
+                    success: function (data) {
+                        var serverData = data.split(':');
+                        if (serverData[0] == "ok") {
+                            window.location.href = "/SessionDemo/UserInfoLogin.aspx";
+                        }
+                        else {
+                            $("#idSpanName").css("display", "block");
+                            $("#idSpanName").text(serverData[1]);
+                        }
+                    }
+                })
+            }
+            else {
+                $("#idSpanName").css("display", "block");
+                $("#idSpanName").text("用户名密码不能为空！");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            用户名：<input type="text" name="txtName" id="idTxtName" />
+            <br />
+            密码：<input type="password" name="txtPwd" id="idTxtPwd" />
+            <br />
+            <input type="button" value="登录" id="btnLogin" />
+            <br />
+            <span style="font-size: 14px; color: red" id="idSpanName"></span>
+        </div>
+    </form>
+</body>
+</html>

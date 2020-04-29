@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Project.WebApp.SessionDemo {
+namespace Project.WebApp.Ajax {
     
     
-    public partial class UserInfoLogin {
+    public partial class Register {
         
         /// <summary>
         /// form1 控件。

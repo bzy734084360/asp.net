@@ -22,7 +22,10 @@
             <br />
             密码：<input type="password" name="txtPwd" />
             <br />
-            验证码:<input type="text" name="txtCode" /><img src="ValidateImageCode.ashx" id="imageCode" />
+            验证码:<input type="text" name="txtCode" />
+            <img src="ValidateImageCode.ashx" id="imageCode" />
+            <br />
+            <input type="checkbox" name="autoLogin" value="auto" />自动登录
             <br />
             <input type="submit" value="登录" /><span style="font-size: 14px; color: red"><%=Msg %></span>
         </div>

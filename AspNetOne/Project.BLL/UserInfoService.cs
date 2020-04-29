@@ -105,5 +105,15 @@ namespace Project.BLL
             }
             return false;
         }
+        /// <summary>
+        /// 获取用户信息
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+
+        public UserInfo GetUserInfoModel(string userName)
+        {
+            return UserInfoDal.GetUserInfoModel(userName);
+        }
     }
 }

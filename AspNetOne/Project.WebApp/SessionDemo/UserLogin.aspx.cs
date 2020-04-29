@@ -30,10 +30,33 @@ namespace Project.WebApp.SessionDemo
             }
             else
             {
-                if (Session["userInfo"] != null)
+                //判断Cookie中的值
+                CheckCookieInfo();
+            }
+        }
+        /// <summary>
+        /// 校验Cookie信息
+        /// </summary>
+        private void CheckCookieInfo()
+        {
+            if (Request.Cookies["cp1"] != null && Request.Cookies["cp2"] != null)
+            {
+                string userName = Request.Cookies["cp1"].Value;
+                string userPwd = Request.Cookies["cp2"].Value;
+                UserInfoService userInfoService = new UserInfoService();
+                UserInfo info = userInfoService.GetUserInfoModel(userName);
+                if (info != null)
                 {
-                    Response.Redirect("UserInfoLogin.aspx");
+                    //注意：注册账号时，需加密后保存。
+                    if (userPwd == Common.WebCommon.GetMd5String(Common.WebCommon.GetMd5String(info.UserPwd.Trim())))
+                    {
+                        Session["userinfo"] = info;
+                        Response.Redirect("userInfoLogin.aspx");
+                    }
                 }
+                //若Cookie 被篡改，或不匹配，则清空Cookie 重新登录
+                Response.Cookies["cp1"].Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies["cp2"].Expires = DateTime.Now.AddDays(-1);
             }
         }
 
@@ -77,6 +100,16 @@ namespace Project.WebApp.SessionDemo
             //判断用户
             if (userInfoService.ValidateUserInfo(userName, userPwd, out msg, out userInfo))
             {
+                //自动登录，判断用户是否选择自动登录
+                if (!string.IsNullOrEmpty(Request.Form["autoLogin"]))//页面上有多个复选框时，只能将选中的复选框的值提交到服务端
+                {
+                    HttpCookie cookie1 = new HttpCookie("cp1", userName);
+                    HttpCookie cookie2 = new HttpCookie("cp2", Common.WebCommon.GetMd5String(Common.WebCommon.GetMd5String(userPwd)));
+                    cookie1.Expires = DateTime.Now.AddDays(7);
+                    cookie2.Expires = DateTime.Now.AddDays(7);
+                    Response.Cookies.Add(cookie1);
+                    Response.Cookies.Add(cookie2);
+                }
                 //将Session赋值
                 Session["userInfo"] = userInfo;
                 Response.Redirect("UserInfoLogin.aspx");
