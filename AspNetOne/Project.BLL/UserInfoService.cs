@@ -76,5 +76,34 @@ namespace Project.BLL
             int end = pageIndex * pageSize;
             return UserInfoDal.GetPageList(start, end);
         }
+        /// <summary>
+        /// 完成用户登录
+        /// </summary>
+        /// <param name="userName">用户名</param>
+        /// <param name="userPwd">用户密码</param>
+        /// <param name="msg">登录信息</param>
+        /// <param name="userInfo">登录用户信息</param>
+        /// <returns></returns>
+        public bool ValidateUserInfo(string userName, string userPwd, out string msg, out UserInfo userInfo)
+        {
+            userInfo = UserInfoDal.GetUserInfoModel(userName);
+            if (userInfo != null)
+            {
+                if (userInfo.UserPwd.Trim() == userPwd)
+                {
+                    msg = "登录成功！";
+                    return true;
+                }
+                else
+                {
+                    msg = "用户名或密码错误！";
+                }
+            }
+            else
+            {
+                msg = "没有此用户！";
+            }
+            return false;
+        }
     }
 }

@@ -116,17 +116,29 @@
     <Content Include="aspx\WebDemos\style\CommonStyle.css" />
     <Content Include="aspx\WebDemos\style\pageStyle.css" />
     <Content Include="aspx\WebDemos\style\style.css" />
+    <Content Include="Cookie\Cookie2.aspx" />
+    <Content Include="Cookie\CookieDemo.aspx" />
+    <Content Include="Cookie\CookieLogin.aspx" />
     <Content Include="Css\PageBarStyle.css" />
     <Content Include="Css\tableStyle.css" />
     <Content Include="Error.html" />
     <Content Include="JQuery\jquery-3.4.1.js" />
     <Content Include="JQuery\jquery-3.4.1.min.js" />
     <Content Include="Login.html" />
+    <Content Include="Request与Response其他成员\Child.aspx" />
+    <Content Include="Request与Response其他成员\ServerDemo.aspx" />
+    <Content Include="Request与Response其他成员\ShowUrl.html" />
+    <Content Include="Request与Response其他成员\UrlRefer.aspx" />
+    <Content Include="SessionDemo\SessionDemo.aspx" />
+    <Content Include="SessionDemo\Test.aspx" />
+    <Content Include="SessionDemo\UserInfoLogin.aspx" />
+    <Content Include="SessionDemo\UserLogin.aspx" />
     <Content Include="UpLoading\DownLoadFile.html" />
     <Content Include="UpLoading\FileUp.html" />
     <Content Include="UpLoading\webstrom激活码.txt" />
     <Content Include="UserInfoListModel.html" />
     <Content Include="UserInfoUpdate.html" />
+    <Content Include="ViewStataDemo\ViewStateDemo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -164,10 +176,83 @@
     <Compile Include="aspx\NewList.aspx.designer.cs">
       <DependentUpon>NewList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cookie\Cookie2.aspx.cs">
+      <DependentUpon>Cookie2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cookie\Cookie2.aspx.designer.cs">
+      <DependentUpon>Cookie2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cookie\CookieDemo.aspx.cs">
+      <DependentUpon>CookieDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cookie\CookieDemo.aspx.designer.cs">
+      <DependentUpon>CookieDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cookie\CookieLogin.aspx.cs">
+      <DependentUpon>CookieLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cookie\CookieLogin.aspx.designer.cs">
+      <DependentUpon>CookieLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditUserInfo.ashx.cs">
       <DependentUpon>EditUserInfo.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request与Response其他成员\Child.aspx.cs">
+      <DependentUpon>Child.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Request与Response其他成员\Child.aspx.designer.cs">
+      <DependentUpon>Child.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Request与Response其他成员\ServerDemo.aspx.cs">
+      <DependentUpon>ServerDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Request与Response其他成员\ServerDemo.aspx.designer.cs">
+      <DependentUpon>ServerDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Request与Response其他成员\UrlRefer.aspx.cs">
+      <DependentUpon>UrlRefer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Request与Response其他成员\UrlRefer.aspx.designer.cs">
+      <DependentUpon>UrlRefer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SessionDemo\SessionDemo.aspx.cs">
+      <DependentUpon>SessionDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionDemo\SessionDemo.aspx.designer.cs">
+      <DependentUpon>SessionDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SessionDemo\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionDemo\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SessionDemo\UserInfoLogin.aspx.cs">
+      <DependentUpon>UserInfoLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionDemo\UserInfoLogin.aspx.designer.cs">
+      <DependentUpon>UserInfoLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SessionDemo\UserLogin.aspx.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionDemo\UserLogin.aspx.designer.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SessionDemo\ValidateImageCode.ashx.cs">
+      <DependentUpon>ValidateImageCode.ashx</DependentUpon>
+    </Compile>
     <Compile Include="UpLoading\CreateImage.ashx.cs">
       <DependentUpon>CreateImage.ashx</DependentUpon>
     </Compile>
@@ -192,6 +277,13 @@
     <Compile Include="ValidataCode.ashx.cs">
       <DependentUpon>ValidataCode.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ViewStataDemo\ViewStateDemo.aspx.cs">
+      <DependentUpon>ViewStateDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewStataDemo\ViewStateDemo.aspx.designer.cs">
+      <DependentUpon>ViewStateDemo.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddUserInfo.ashx" />
@@ -208,6 +300,7 @@
     <Content Include="ValidataCode.ashx" />
     <Content Include="UpLoading\DownLoad.ashx" />
     <Content Include="UpLoading\webstrom激活码.zip" />
+    <Content Include="SessionDemo\ValidateImageCode.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

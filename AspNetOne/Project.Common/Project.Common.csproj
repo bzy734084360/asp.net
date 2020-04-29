@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckSession.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="ImageClass.cs" />
     <Compile Include="PageBar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

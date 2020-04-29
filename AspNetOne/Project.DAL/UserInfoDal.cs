@@ -74,6 +74,29 @@ namespace Project.DAL
             return userInfo;
         }
         /// <summary>
+        /// 根据用户编号查询用户信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public UserInfo GetUserInfoModel(string userName)
+        {
+            string sql = "select *from userinfo where UserName=@UserName";
+            UserInfo userInfo = null;
+            SqlParameter[] pars =
+                {
+                new SqlParameter("@UserName", SqlDbType.NVarChar),
+                //new SqlParameter("@UserPwd", SqlDbType.NVarChar)
+                };
+            pars[0].Value = userName;
+            DataTable tb = SqlHelper.GetDataTable(sql, CommandType.Text, pars);
+            if (tb.Rows.Count > 0)
+            {
+                userInfo = new UserInfo();
+                LoadEntity(tb.Rows[0], userInfo);
+            }
+            return userInfo;
+        }
+        /// <summary>
         /// 获取总的记录数
         /// </summary>
         /// <returns></returns>
