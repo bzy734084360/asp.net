@@ -149,8 +149,8 @@ namespace Project.DAL
         private void LoadEntity(DataRow item, UserInfo userInfo)
         {
             userInfo.UserId = Convert.ToInt32(item["UserId"]);
-            userInfo.UserName = item["UserName"] != DBNull.Value ? item["UserName"].ToString() : string.Empty;
-            userInfo.UserPwd = item["UserPwd"] != DBNull.Value ? item["UserPwd"].ToString() : string.Empty;
+            userInfo.UserName = item["UserName"] != DBNull.Value ? item["UserName"].ToString().Trim() : string.Empty;
+            userInfo.UserPwd = item["UserPwd"] != DBNull.Value ? item["UserPwd"].ToString().Trim() : string.Empty;
             userInfo.RegDate = Convert.ToDateTime(item["RegDate"]);
         }
     }

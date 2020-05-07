@@ -33,6 +33,10 @@ namespace Project.Common
                 start = pageCount - 9 > 1 ? pageCount - 9 : 1;
             }
             StringBuilder sb = new StringBuilder();
+            if (pageIndex > 1)
+            {
+                sb.Append($"<a href='?pageIndex={pageIndex - 1}' class='myPageBar'>上一页</a>");
+            }
             for (int i = start; i <= end; i++)
             {
                 if (i == pageIndex)
@@ -41,8 +45,12 @@ namespace Project.Common
                 }
                 else
                 {
-                    sb.Append($"<a href='NewList.aspx?pageIndex={i}'>{i}</a>");
+                    sb.Append($"<a href='?pageIndex={i}'  class='myPageBar'>{i}</a>");
                 }
+            }
+            if (pageIndex < pageCount)
+            {
+                sb.Append($"<a href='?pageIndex={pageIndex + 1}' class='myPageBar'>下一页</a>");
             }
             return sb.ToString();
         }

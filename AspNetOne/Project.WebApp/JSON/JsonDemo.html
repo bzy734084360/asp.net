@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../JQuery/jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            $("#bnt_Date").click(function () {
+                $.ajax({
+                    type: "POST",
+                    dataType: "JSON",
+                    url: "GetJson.ashx",
+                    success: function (data) {
+                        alert("用户名是：" + data.Name);
+                    }
+                })
+            });
+            $("#bnt_DataToJson").click(function () {
+                $.ajax({
+                    type: "POST",
+                    //dataType: "JSON",
+                    url: "GetJson.ashx",
+                    success: function (data) {
+                        var serverData = $.parseJSON(data)
+                        alert("用户名是：" + serverData.Name);
+                    }
+                })
+            });
+            $("#bnt_GetDataToJson").click(function () {
+                //$.ajax({
+                //    type: "POST",
+                //    //dataType: "JSON",
+                //    url: "GetJson.ashx",
+                //    success: function (data) {
+                //        var serverData = $.parseJSON(data)
+                //        alert("用户名是：" + serverData.Name);
+                //    }
+                //})
+                $.getJSON("GetJson.ashx", {}, function (data) {
+                    alert("用户名是：" + data.Name);
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" name="name" value="Post获取数据" id="bnt_Data" />
+    <input type="button" name="name" value="Post获取数据转JSON" id="bnt_DataToJson" />
+    <input type="button" name="name" value="Get获取数据转JSON" id="bnt_GetDataToJson" />
+</body>
+</html>

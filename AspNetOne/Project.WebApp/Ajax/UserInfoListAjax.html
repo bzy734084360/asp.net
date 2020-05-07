@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>用户列表展示</title>
+    <link href="../Css/tableStyle.css" rel="stylesheet" />
+    <link href="../Css/tableStyle.css" rel="stylesheet" />
+    <link href="../Css/themes/default/easyui.css" rel="stylesheet" />
+    <link href="../Css/pageBarStyle.css" rel="stylesheet" />
+    <script src="../JQuery/jquery-3.4.1.js"></script>
+    <script src="../Js/jquery.easyui.min.js"></script>
+    <script src="../Js/easyui-lang-zh_CN.js"></script>
+    <script>
+        $(function () {
+            $("#detailDiv").css("display", "none");
+            $("#addUserDiv").css("display", "none");
+            $("#editUserDiv").css("display", "none");
+            loadUserInfo(1);
+            $("#addUserInfo").click(function () {
+                bindAddClick();
+            });
+        });
+        //展示添加用户数据表单
+        function bindAddClick() {
+            $("#addUserDiv").css("display", "block");
+            $("#addUserDiv").dialog({
+                width: 300,
+                height: 300,
+                title: "添加用户信息",
+                collapsible: true,
+                maximizable: true,
+                resizable: true,
+                modal: true,
+                buttons: [{
+                    text: 'Ok',
+                    iconCls: 'icon-ok',
+                    handler: function () {
+                        //获取用户在添加表单中输入的数据，然后通过ajax 发送到服务端
+                        addUser();
+                    }
+                }, {
+                    text: 'Cancel',
+                    handler: function () {
+                        $('#addUserDiv').dialog('close');
+                    }
+                }]
+            });
+        };
+        //完成用户添加
+        function addUser() {
+            //获取用户在表单中添加的数据  通过给input 添加ID 选择器（数据量大不适用）
+            //简易方法
+            var pars = $("#addUserForm").serializeArray();
+            //$.each(pars, function (i, field) {
+            //    alert(field.value + " ");
+            //});
+            $.ajax({
+                type: "POST",
+                url: "AddUserAjaxInfo.ashx",
+                data: pars,
+                success: function (rdata) {
+                    if (rdata == "ok") {
+                        //清除添加表单中输入的数据
+                        $("#addUserForm input").val("");
+                        //关闭添加窗口
+                        $('#addUserDiv').dialog('close');
+                        //删除表格旧数据
+                        $("#tabList tr:gt(0)").remove();
+                        //重新给表格添加数据
+                        loadUserInfo();
+                    } else {
+                        $.messager.alert("提示", "添加失败", "error");
+                    }
+                }
+            });
+        };
+        //加载数据
+        function loadUserInfo(pageIndex) {
+            $.ajax({
+                type: "POST",
+                url: "UserAjaxList.ashx",
+                data: { "pageIndex": pageIndex },
+                dataType: "JSON",
+                success: function (data) {
+                    for (var i = 0; i < data.UList.length; i++) {
+                        $("<tr><td>" + data.UList[i].UserId + "</td><td>" + data.UList[i].UserName +
+                            "</td><td>" + data.UList[i].UserPwd +
+                            "</td><td>" + ChangeDateFormat(data.UList[i].RegDate) +
+                            "</td><td><a href='javascript:void(0)' class='details' nId='" + data.UList[i].UserId +
+                            "'>详细</a></td><td><a href='javascript:void(0)'class='deletes' dId='" + data.UList[i].UserId +
+                            "'>删除</a></td><td><a href='javascript:void(0)' class='edits' eId='" + data.UList[i].UserId +
+                            "'>编辑</a></td></tr>").appendTo("#tabList");
+                    }
+                    //将页码条加到DIV上
+                    $("#pageBarDiv").html(data.MyPageBar);
+                    bindMyPageBatClick();//页码添加单击事件
+                    bindDetailClick();//注意：一定要表格中所有的数据加载完成了，才能开始给表格中的超链接添加单击事件
+                    bindDeleteClick();//删除
+                    bindEditClick()//编辑
+                }
+            })
+        };
+        //页码添加单击事件
+        function bindMyPageBatClick() {
+            $(".myPageBar").click(function () {
+                var pageIndex = $(this).attr("href").split('=')[1];
+                //清除表格中原有的数据
+                $("#tabList tr:gt(0)").remove();
+                loadUserInfo(pageIndex);
+                return false;
+            });
+        };
+        //修改用户信息
+        function bindEditClick() {
+            $(".edits").click(function () {
+                var id = $(this).attr("eId");
+                $.ajax({
+                    type: "POST",
+                    data: { "id": id },
+                    dataType: "JSON",
+                    url: "ShowDetail.ashx",
+                    success: function (data) {
+                        $("#editUserId").val(data.UserId);
+                        $("#editUserName").val(data.UserName);
+                        $("#editUserPwd").val(data.UserPwd);
+                        $("#editUserDiv").css("display", "block");
+                        $("#editUserDiv").dialog({
+                            width: 300,
+                            height: 300,
+                            title: "修改用户信息",
+                            collapsible: true,
+                            maximizable: true,
+                            resizable: true,
+                            modal: true,
+                            buttons: [{
+                                text: 'Ok',
+                                iconCls: 'icon-ok',
+                                handler: function () {
+                                    editUserInfo();
+                                }
+                            }, {
+                                text: 'Cancel',
+                                handler: function () {
+                                    $('#editUserDiv').dialog('close');
+                                }
+                            }]
+                        });
+                    }
+                });
+            });
+        };
+        //完成数据更新
+        function editUserInfo() {
+            var pars = $("#editUserForm").serializeArray();
+            $.ajax({
+                type: "POST",
+                url: "EditUserAjaxInfo.ashx",
+                data: pars,
+                success: function (data) {
+                    if (data == "ok") {
+                        //清除表格中原有的数据
+                        $("#tabList tr:gt(0)").remove();
+                        //关闭添加窗口
+                        $('#editUserDiv').dialog('close');
+                        loadUserInfo();
+                        $.messager.show({
+                            title: "提示",
+                            msg: "修改成功",
+                            showType: "show"
+                        });
+                    }
+                    else {
+                        $.messager.alert("提示", "删除失败", "error");
+                    }
+                }
+            });
+        };
+        //删除数据
+        function bindDeleteClick() {
+            $(".deletes").click(function () {
+                var id = $(this).attr("dId");
+                $.messager.confirm("删除提示", "你确定要删除该记录吗?", function (r) {
+                    if (r) {
+                        //表示用户点击了确定按钮
+                        $.ajax({
+                            type: "POST",
+                            url: "DeleteUserAjax.ashx",
+                            data: { "id": id },
+                            success: function (data) {
+                                if (data == "ok") {
+                                    //清除表格中原有的数据
+                                    $("#tabList tr:gt(0)").remove();
+                                    loadUserInfo();
+                                    $.messager.show({
+                                        title: "提示",
+                                        msg: "删除成功",
+                                        showType: "show"
+                                    });
+                                }
+                                else {
+                                    $.messager.alert("提示", "删除失败", "error");
+                                }
+                            }
+                        })
+                    }
+                });
+            })
+        }
+        //展示详细信息
+        function bindDetailClick() {
+            $(".details").click(function () {
+                var id = $(this).attr("nId");
+                $.ajax({
+                    type: "POST",
+                    data: { "id": id },
+                    dataType: "JSON",
+                    url: "ShowDetail.ashx",
+                    success: function (data) {
+                        $("#userName").text(data.UserName);
+                        $("#userPwd").text(data.UserPwd);
+                        $("#detailDiv").css("display", "block");
+                        $("#detailDiv").dialog({
+                            width: 300,
+                            height: 300,
+                            title: "用户详细信息",
+                            collapsible: true,
+                            maximizable: true,
+                            resizable: true,
+                            modal: true,
+                            buttons: [{
+                                text: 'Ok',
+                                iconCls: 'icon-ok',
+                                handler: function () {
+                                    alert('ok');
+                                }
+                            }, {
+                                text: 'Cancel',
+                                handler: function () {
+                                    $('#detailDiv').dialog('close');
+                                }
+                            }]
+                        });
+                    }
+                })
+            });
+        }
+        function ChangeDateFormat(cellval) {
+            var date = new Date(parseInt(cellval.replace("/Date(", "").replace(")/", ""), 10))
+            var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+            var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+            return date.getFullYear() + "-" + month + "-" + currentDate;
+        }
+    </script>
+</head>
+<body>
+    <a href="javascript:void(0)" id="addUserInfo">添加用户</a>
+    <table id="tabList">
+        <tr>
+            <th>编号</th>
+            <th>用户名</th>
+            <th>密码</th>
+            <th>日期</th>
+            <th>详细</th>
+            <th>修改</th>
+            <th>删除</th>
+        </tr>
+    </table>
+
+    <div class="page_nav" id="pageBarDiv">
+        <!--<a href="NewList.aspx?pageIndex=1">首页</a>
+        <span id="pageBarSpan"></span>
+        <a href="NewList.aspx?pageIndex=<%=PageCount %>">尾页</a>-->
+    </div>
+
+    <!------------详细信息------------------>
+    <div id="detailDiv">
+        <table>
+            <tr>
+                <td>用户名</td>
+                <td><span id="userName"></span></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><span id="userPwd"></span></td>
+            </tr>
+        </table>
+    </div>
+    <!------------添加用户信息------------------>
+    <div id="addUserDiv">
+        <form action="" method="post" id="addUserForm">
+            <table>
+                <tr>
+                    <td>用户名</td>
+                    <td><input type="text" name="txtUserName" /></td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input type="text" name="txtUserPwd" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!------------编辑用户信息------------------>
+    <div id="editUserDiv">
+        <form action="" method="post" id="editUserForm">
+            <input type="hidden" name="txtEditUserId" id="editUserId" />
+            <table>
+                <tr>
+                    <td>用户名</td>
+                    <td><input type="text" name="txtEditUserName" id="editUserName" /></td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input type="text" name="txtEditUserPwd" id="editUserPwd" /></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
