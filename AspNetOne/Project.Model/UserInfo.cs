@@ -9,6 +9,7 @@ namespace Project.Model
     /// <summary>
     /// 用户信息表
     /// </summary>
+    [Serializable]
     public class UserInfo
     {
         public int UserId { get; set; }

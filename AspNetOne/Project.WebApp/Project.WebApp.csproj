@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddUserInfo.html" />
+    <Content Include="Admin\AddProduct.aspx" />
     <Content Include="Ajax\AjaxDemo.aspx" />
     <Content Include="Ajax\AjaxPostDemo.aspx" />
     <Content Include="Ajax\JqueryAjax.aspx" />
@@ -123,6 +124,11 @@
     <Content Include="aspx\WebDemos\style\CommonStyle.css" />
     <Content Include="aspx\WebDemos\style\pageStyle.css" />
     <Content Include="aspx\WebDemos\style\style.css" />
+    <Content Include="Cache\CacheDemo.aspx" />
+    <Content Include="Cache\File.txt" />
+    <Content Include="Cache\FileCacheDep.aspx" />
+    <Content Include="Cache\PageCacheDemo.aspx" />
+    <Content Include="Cache\ShowDetail.aspx" />
     <Content Include="Cookie\Cookie2.aspx" />
     <Content Include="Cookie\CookieDemo.aspx" />
     <Content Include="Cookie\CookieLogin.aspx" />
@@ -392,17 +398,26 @@
     <Content Include="Css\themes\metro\validatebox.css" />
     <Content Include="Css\themes\metro\window.css" />
     <Content Include="Error.html" />
+    <Content Include="ErrorConfigStudy\TestError.aspx" />
+    <Content Include="FileNotFound.html" />
     <Content Include="JQuery\jquery-3.4.1.js" />
     <Content Include="JQuery\jquery-3.4.1.min.js" />
     <Content Include="JSON\JsonDemo.html" />
     <Content Include="JS\easyui-lang-zh_CN.js" />
     <Content Include="JS\jquery.easyui.min.js" />
     <Content Include="Login.html" />
+    <Content Include="MasterPage\WebForm2.aspx" />
+    <Content Include="MasterPage\WebForm3.aspx" />
+    <Content Include="MyErrorPage.html" />
     <Content Include="Request与Response其他成员\Child.aspx" />
     <Content Include="Request与Response其他成员\ServerDemo.aspx" />
     <Content Include="Request与Response其他成员\ShowUrl.html" />
     <Content Include="Request与Response其他成员\UrlRefer.aspx" />
+    <Content Include="ServerController\Index.aspx" />
+    <Content Include="ServerController\WebForm1.aspx" />
+    <Content Include="SessionDemo\ReadSessionOther.aspx" />
     <Content Include="SessionDemo\SessionDemo.aspx" />
+    <Content Include="SessionDemo\SessionOther.aspx" />
     <Content Include="SessionDemo\Test.aspx" />
     <Content Include="SessionDemo\UserInfoLogin.aspx" />
     <Content Include="SessionDemo\UserLogin.aspx" />
@@ -417,6 +432,13 @@
   <ItemGroup>
     <Compile Include="AddUserInfo.ashx.cs">
       <DependentUpon>AddUserInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ajax\AddUserAjaxInfo.ashx.cs">
       <DependentUpon>AddUserAjaxInfo.ashx</DependentUpon>
@@ -508,6 +530,34 @@
     <Compile Include="aspx\NewList.aspx.designer.cs">
       <DependentUpon>NewList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cache\CacheDemo.aspx.cs">
+      <DependentUpon>CacheDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cache\CacheDemo.aspx.designer.cs">
+      <DependentUpon>CacheDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cache\FileCacheDep.aspx.cs">
+      <DependentUpon>FileCacheDep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cache\FileCacheDep.aspx.designer.cs">
+      <DependentUpon>FileCacheDep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cache\PageCacheDemo.aspx.cs">
+      <DependentUpon>PageCacheDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cache\PageCacheDemo.aspx.designer.cs">
+      <DependentUpon>PageCacheDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cache\ShowDetail.aspx.cs">
+      <DependentUpon>ShowDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cache\ShowDetail.aspx.designer.cs">
+      <DependentUpon>ShowDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cookie\Cookie2.aspx.cs">
       <DependentUpon>Cookie2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -532,8 +582,36 @@
     <Compile Include="EditUserInfo.ashx.cs">
       <DependentUpon>EditUserInfo.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ErrorConfigStudy\TestError.aspx.cs">
+      <DependentUpon>TestError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorConfigStudy\TestError.aspx.designer.cs">
+      <DependentUpon>TestError.aspx</DependentUpon>
+    </Compile>
     <Compile Include="JSON\GetJson.ashx.cs">
       <DependentUpon>GetJson.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\MainMaster.Master.cs">
+      <DependentUpon>MainMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\MainMaster.Master.designer.cs">
+      <DependentUpon>MainMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage\WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage\WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request与Response其他成员\Child.aspx.cs">
@@ -557,8 +635,37 @@
     <Compile Include="Request与Response其他成员\UrlRefer.aspx.designer.cs">
       <DependentUpon>UrlRefer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ServerController\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServerController\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServerController\Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServerController\Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ServerController\userINfo.cs" />
+    <Compile Include="ServerController\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServerController\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SessionDemo\LogOut.ashx.cs">
       <DependentUpon>LogOut.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SessionDemo\ReadSessionOther.aspx.cs">
+      <DependentUpon>ReadSessionOther.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionDemo\ReadSessionOther.aspx.designer.cs">
+      <DependentUpon>ReadSessionOther.aspx</DependentUpon>
     </Compile>
     <Compile Include="SessionDemo\SessionDemo.aspx.cs">
       <DependentUpon>SessionDemo.aspx</DependentUpon>
@@ -566,6 +673,13 @@
     </Compile>
     <Compile Include="SessionDemo\SessionDemo.aspx.designer.cs">
       <DependentUpon>SessionDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SessionDemo\SessionOther.aspx.cs">
+      <DependentUpon>SessionOther.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SessionDemo\SessionOther.aspx.designer.cs">
+      <DependentUpon>SessionOther.aspx</DependentUpon>
     </Compile>
     <Compile Include="SessionDemo\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
@@ -637,6 +751,7 @@
     <Content Include="Ajax\DeleteUserAjax.ashx" />
     <Content Include="Ajax\AddUserAjaxInfo.ashx" />
     <Content Include="Ajax\EditUserAjaxInfo.ashx" />
+    <Content Include="MasterPage\MainMaster.Master" />
     <None Include="packages.config" />
     <Content Include="UserInfoList.ashx" />
     <Content Include="DeleteUserInfo.ashx" />
@@ -649,6 +764,8 @@
     <Content Include="UpLoading\webstrom激活码.zip" />
     <Content Include="SessionDemo\ValidateImageCode.ashx" />
     <Content Include="SessionDemo\LogOut.ashx" />
+    <Content Include="ServerController\Site1.Master" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
