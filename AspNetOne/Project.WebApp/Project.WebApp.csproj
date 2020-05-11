@@ -400,6 +400,7 @@
     <Content Include="Error.html" />
     <Content Include="ErrorConfigStudy\TestError.aspx" />
     <Content Include="FileNotFound.html" />
+    <Content Include="Global.asax" />
     <Content Include="JQuery\jquery-3.4.1.js" />
     <Content Include="JQuery\jquery-3.4.1.min.js" />
     <Content Include="JSON\JsonDemo.html" />
@@ -588,6 +589,9 @@
     </Compile>
     <Compile Include="ErrorConfigStudy\TestError.aspx.designer.cs">
       <DependentUpon>TestError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="JSON\GetJson.ashx.cs">
       <DependentUpon>GetJson.ashx</DependentUpon>
@@ -789,6 +793,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Browsers\" />
+    <Folder Include="Delegate\" />
     <Folder Include="ImageUp\" />
   </ItemGroup>
   <PropertyGroup>
