@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Demo", "Project.Dem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadDemo", "ThreadDemo\ThreadDemo.csproj", "{83E68B93-CC12-401A-997F-44D139E2D04F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaDemo", "LambdaDemo\LambdaDemo.csproj", "{D18DC50C-AFA1-4FDF-AE57-64D77B74802F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProObject.EFDemo", "ProObject.EFDemo\ProObject.EFDemo.csproj", "{93CA73B9-7455-453D-9595-07B06811EA76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{83E68B93-CC12-401A-997F-44D139E2D04F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E68B93-CC12-401A-997F-44D139E2D04F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83E68B93-CC12-401A-997F-44D139E2D04F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D18DC50C-AFA1-4FDF-AE57-64D77B74802F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D18DC50C-AFA1-4FDF-AE57-64D77B74802F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D18DC50C-AFA1-4FDF-AE57-64D77B74802F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D18DC50C-AFA1-4FDF-AE57-64D77B74802F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93CA73B9-7455-453D-9595-07B06811EA76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93CA73B9-7455-453D-9595-07B06811EA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93CA73B9-7455-453D-9595-07B06811EA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93CA73B9-7455-453D-9595-07B06811EA76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
