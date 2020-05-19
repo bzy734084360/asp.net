@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+@using Project.MvcStudy.Models
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script>
+        window.onload = function () {
+            var deletes = document.getElementsByClassName("deletes");
+            var deletesLength = deletes.length;
+            for (var i = 0; i < deletesLength; i++) {
+                deletes[i].onclick = function () {
+                    if (!confirm("确定要删除吗??")) {
+                        return false;
+                    }
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>编号</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>日期</th>
+                <th>详情</th>
+                <th>删除</th>
+            </tr>
+            @*@Html.Raw(ViewData["userInfoList"])*@
+            @*@foreach (var item in (IQueryable<_Page_Views_UserInfo_Index_cshtml>)ViewData["userInfoList"])
+                {
+                    <tr>
+                        <td>item.UserId</td>
+                        <td>item.UserName</td>
+                        <td>item.UserPwd</td>
+                        <td>item.RegDate.ToString()</td>
+                    </tr>
+                }*@
+            @foreach (var item in (IQueryable<UserInfo>)ViewData["userInfoListC"])
+            {
+                <tr>
+                    <td>@item.UserId</td>
+                    <td>@item.UserName</td>
+                    <td>@item.UserPwd</td>
+                    <td>@item.RegDate.ToString()</td>
+                </tr>
+            }
+        </table>
+        <hr />
+        @Html.Raw(ViewData["pageBar"]);
+    </div>
+</body>
+</html>

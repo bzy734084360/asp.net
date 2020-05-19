@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateUserInfo</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script>
+        $(function () {
+            $("#form1").validate({//标识对哪个表单元素进行校验
+                rules: {//表示验证规则
+                    txtName: "required",//表示对哪个表单元素进行校验，具体元素的name值
+                    txtPwd: {
+                        required: true,
+                        minlength: 5
+                    },
+                    txtConfirmPwd: {
+                        requirde: true,
+                        minlength: 5,
+                        equalTo: "txtPwd"//获取的是元素的ID属性的值
+                    },
+
+                },
+                messages: {
+                    txtName: "请输入用户名",
+                    txtPwd: {
+                        required: "请输入密码",
+                        minlength: jQuery.format("密码不能小于{0}个字 符")
+                    },
+                    txtComfirmPwd: {
+                        required: "请输入确认密码",
+                        minlength: "确认密码不能小于5个字符",
+                        equalTo: "两次输入密码不一致"
+                    }
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <form action="/Home/Index" method="post" id="form1">
+            用户名：<input type="text" name="txtName" /><br />
+            密码：<input type="password" name="txtPwd" id="txtPwd" /><br />
+            确认密码：<input type="password" name="txtConfirmPwd" /><br />
+            <input type="submit" name="name" />
+        </form>
+    </div>
+</body>
+</html>

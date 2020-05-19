@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            $("#btnAdd").click(function () {
+                var pars = $("#form1").serializeArray();
+                $.ajax({
+                    url: "/Home/AddUserInfo",
+                    type: "POST",
+                    data: pars,
+                    success: function (data) {
+
+                    }
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <form @*action="/Home/AddUserInfo"*@ action="/Home/Register" method="post" id="form1">
+            用户名：<input type="text" @*name="txtName"*@ name="UserName" value="" />
+            密码：<input type="password" @*name="txtPwd"*@ name="UserPwd" value="" />
+            @*<input type="submit" value="添加" />*@
+            <input type="button" id="btnAdd" value="添加" />
+        </form>
+    </div>
+</body>
+</html>

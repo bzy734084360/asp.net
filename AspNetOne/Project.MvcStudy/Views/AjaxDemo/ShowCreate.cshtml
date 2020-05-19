@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowCreate</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script>
+        function afterAdd(data) {
+            alert(data);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        @using (Ajax.BeginForm("AddUserInfo", "AjaxDemo", new AjaxOptions()
+        {
+            Confirm = "确定要添加吗"
+        ,
+            HttpMethod = "post",
+            UpdateTargetId = "div1",
+            InsertionMode = InsertionMode.Replace,
+            LoadingElementId = "div2",
+            OnSuccess = "afterAdd"
+        }))
+        {
+            <input type="submit" value="添加用户" />
+        }
+    </div>
+    <div id="div1">
+        aaa
+    </div>
+    <div id="div2" style="display:none">
+        正在添加.........
+    </div>
+</body>
+</html>

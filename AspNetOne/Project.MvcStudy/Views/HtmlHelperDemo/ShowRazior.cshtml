@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+@using Project.MvcStudy.Models
+@model Project.MvcStudy.Models.UserInfo
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowRazior</title>
+</head>
+<body>
+    <div>
+        @for (int i = 0; i < 10; i++)
+        {
+            @i;
+        }
+        <hr />
+        @{
+            int a = 0;
+            a++;
+            <span style="font-size:14px;color:red">@a</span>
+            var str = "<font color='blue'>aaaa</font>";
+            @str;
+            @MvcHtmlString.Create(str);
+            @*@ViewData.Model.UserId;*@
+        }
+    </div>
+</body>
+</html>

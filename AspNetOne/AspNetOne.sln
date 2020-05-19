@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaDemo", "LambdaDemo\La
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProObject.EFDemo", "ProObject.EFDemo\ProObject.EFDemo.csproj", "{93CA73B9-7455-453D-9595-07B06811EA76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFistDemo", "CodeFistDemo\CodeFistDemo.csproj", "{728DA17D-61C2-48C3-9D44-5633E2270681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.MvcStudy", "Project.MvcStudy\Project.MvcStudy.csproj", "{2D06C979-0331-48EF-A55D-2322334A1D11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{93CA73B9-7455-453D-9595-07B06811EA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93CA73B9-7455-453D-9595-07B06811EA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93CA73B9-7455-453D-9595-07B06811EA76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{728DA17D-61C2-48C3-9D44-5633E2270681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{728DA17D-61C2-48C3-9D44-5633E2270681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{728DA17D-61C2-48C3-9D44-5633E2270681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{728DA17D-61C2-48C3-9D44-5633E2270681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D06C979-0331-48EF-A55D-2322334A1D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D06C979-0331-48EF-A55D-2322334A1D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D06C979-0331-48EF-A55D-2322334A1D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D06C979-0331-48EF-A55D-2322334A1D11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

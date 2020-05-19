@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @RenderSection("Head", true)
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>首页</td>
+                <td>我的相册</td>
+                <td>我的文档</td>
+            </tr>
+        </table>
+        @RenderBody()
+        <table>
+            <tr>
+                <td>版权所有</td>
+            </tr>
+        </table>
+    </div>
+    @RenderSection("foot")
+</body>
+</html>

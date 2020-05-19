@@ -414,6 +414,11 @@
     <Content Include="Request与Response其他成员\ServerDemo.aspx" />
     <Content Include="Request与Response其他成员\ShowUrl.html" />
     <Content Include="Request与Response其他成员\UrlRefer.aspx" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="ServerController\Index.aspx" />
     <Content Include="ServerController\WebForm1.aspx" />
     <Content Include="SessionDemo\ReadSessionOther.aspx" />
@@ -770,6 +775,7 @@
     <Content Include="SessionDemo\LogOut.ashx" />
     <Content Include="ServerController\Site1.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

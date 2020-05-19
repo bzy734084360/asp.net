@@ -1,0 +1,48 @@
+﻿@model Project.MvcStudy.Models.UserInfo
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .txt {
+            font-size: 20px;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div>
+        <a href="/UserInfo/Index">用户列表</a>
+        <hr />
+        @Html.ActionLink("用户列表1", "Index", "UserInfo")
+        <hr />
+        @Html.ActionLink("用户列表2", "Index", "UserInfo", new { name = "zhangsan", age = 12 }, new { id = "a3", @class = "txt" })
+        @Html.DropDownList("city", null, new { id = "selectCity" })
+        <select name="selectDemo" id="city">
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
+            <option value="4">D</option>
+        </select>
+        <hr />
+        男 @Html.RadioButton("Gender", "0", false, new { id = "man" })
+        女 @Html.RadioButton("Gender", "1", false, new { id = "woman" })
+        <hr />
+        @using (Html.BeginForm("Index", "UserInfo", FormMethod.Get, new { id = "form1", enctype = "multipart/form-data" }))
+        {
+            @Html.TextBox("txtName", "请输入用户名", new { id = "userName" })
+            @Html.TextBoxFor(u => u.UserName)
+            <input type="submit" name="name" value="提交" />
+        }
+    </div>
+</body>
+</html>

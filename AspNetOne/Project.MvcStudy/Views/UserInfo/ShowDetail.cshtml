@@ -1,0 +1,32 @@
+﻿@model Project.MvcStudy.Models.UserInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowDetail</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>用户名</td>
+                <td>@Model.UserName</td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td>@Model.UserPwd</td>
+            </tr>
+            <tr>
+                <td>创建时间</td>
+                <td>@Model.RegDate</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
