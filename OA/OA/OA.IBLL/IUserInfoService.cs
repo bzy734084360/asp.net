@@ -1,15 +1,15 @@
-﻿using OA.Model;
+﻿using OA.IDAL;
+using OA.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OA.IDAL
+namespace OA.IBLL
 {
-    public interface IUserInfoDal : IBasDal<UserInfo>
+    public interface IUserInfoService : IBaseService<UserInfo>
     {
-        //定义自己特有的方法
 
     }
 }
