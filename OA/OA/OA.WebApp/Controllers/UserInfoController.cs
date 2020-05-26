@@ -11,7 +11,6 @@ namespace OA.WebApp.Controllers
 {
     public class UserInfoController : Controller
     {
-        // GET: UserInfo
         IUserInfoService bll = new UserInfoService();
         public ActionResult Index(UserInfo userInfo)
         {
