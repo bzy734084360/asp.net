@@ -12,12 +12,12 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UName" Type="nchar" MaxLength="32" />
-          <Property Name="UPwd" Type="nchar" MaxLength="16" />
+          <Property Name="UName" Type="nvarchar" MaxLength="32" />
+          <Property Name="UPwd" Type="nvarchar" MaxLength="50" />
           <Property Name="SubTime" Type="date" />
-          <Property Name="DelFlag" Type="int" />
+          <Property Name="DelFlag" Type="smallint" />
           <Property Name="ModifiedOn" Type="date" />
-          <Property Name="Remark" Type="nchar" MaxLength="256" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="256" />
           <Property Name="Sort" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="OAModelStoreContainer">
@@ -44,12 +44,12 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UName" Type="String" MaxLength="32" FixedLength="true" Unicode="true" />
-          <Property Name="UPwd" Type="String" MaxLength="16" FixedLength="true" Unicode="true" />
+          <Property Name="UName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="UPwd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SubTime" Type="DateTime" Precision="0" />
-          <Property Name="DelFlag" Type="Int32" />
+          <Property Name="DelFlag" Type="Int16" />
           <Property Name="ModifiedOn" Type="DateTime" Precision="0" />
-          <Property Name="Remark" Type="String" MaxLength="256" FixedLength="true" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Sort" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="OAEntities" annotation:LazyLoadingEnabled="true">

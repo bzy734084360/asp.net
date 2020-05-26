@@ -30,7 +30,7 @@ namespace OA.IBLL
         /// <param name="orderbyLambda">排序lambda</param>
         /// <param name="isAsc">是否正序</param>
         /// <returns></returns>
-        IQueryable<T> LoadPageEntities<s>(int pageIndex, int pageSize, out int totalCont, Expression<Func<T, bool>> whereLambda, Expression<Func<T, s>> orderbyLambda, bool isAsc);
+        IQueryable<T> LoadPageEntities<S>(int pageIndex, int pageSize, out int totalCont, Expression<Func<T, bool>> whereLambda, Expression<Func<T, S>> orderbyLambda, bool isAsc);
         /// <summary>
         /// 删除
         /// </summary>

@@ -18,7 +18,7 @@ namespace OA.Model
         public string UName { get; set; }
         public string UPwd { get; set; }
         public Nullable<System.DateTime> SubTime { get; set; }
-        public Nullable<int> DelFlag { get; set; }
+        public Nullable<short> DelFlag { get; set; }
         public Nullable<System.DateTime> ModifiedOn { get; set; }
         public string Remark { get; set; }
         public string Sort { get; set; }
