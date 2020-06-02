@@ -5,8 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="OAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“OA.dbo.UserInfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="UserInfo">
           <Key>
             <PropertyRef Name="ID" />
@@ -21,18 +19,7 @@
           <Property Name="Sort" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="OAModelStoreContainer">
-          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [UserInfo].[ID] AS [ID], 
-    [UserInfo].[UName] AS [UName], 
-    [UserInfo].[UPwd] AS [UPwd], 
-    [UserInfo].[SubTime] AS [SubTime], 
-    [UserInfo].[DelFlag] AS [DelFlag], 
-    [UserInfo].[ModifiedOn] AS [ModifiedOn], 
-    [UserInfo].[Remark] AS [Remark], 
-    [UserInfo].[Sort] AS [Sort]
-    FROM [dbo].[UserInfo] AS [UserInfo]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>

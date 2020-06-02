@@ -51,7 +51,6 @@ namespace ThreadDemo
             if (dataDir.EndsWith(@"\bin\Debug\") || dataDir.EndsWith(@"\bin\Realse"))
             {
                 dataDir = Directory.GetParent(dataDir).Parent.Parent.FullName;
-
             }
             string fullDir = dataDir + filePath;//获取文件完整路径
             using (FileStream fileStream = new FileStream(fullDir, FileMode.Open, FileAccess.Read))

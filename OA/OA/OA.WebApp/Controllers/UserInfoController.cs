@@ -25,9 +25,34 @@ namespace OA.WebApp.Controllers
             int totalCount;
             var userInfoList = userInfoService.LoadPageEntities(pageIndex, pageSize, out totalCount, u => u.DelFlag == (short)DeleteEnumType.Normarl, c => c.ID, true);
             var temp = from u in userInfoList
-                       select new { u.ID, u.UName, u.UPwd, u.Remark };
+                       select new { u.ID, u.UName, u.UPwd, u.Remark, u.SubTime };
 
             return Json(new { rows = temp, total = totalCount });
+        }
+
+        #endregion
+
+        #region 删除用户数据
+
+        public ActionResult DeleteUserInfo()
+        {
+            string strID = Request["strId"];
+            string[] strIds = strID.Split(',');
+            List<int> list = new List<int>();
+            foreach (string id in strIds)
+            {
+                list.Add(Convert.ToInt32(id));
+            }
+            //将list集合存储的要删除的记录的编号传递到业务层
+            if (userInfoService.DeleteEntities(list))
+            {
+                return Content("ok");
+            }
+            else
+            {
+                return Content("no");
+            }
+            return Json(new { });
         }
 
         #endregion

@@ -10,6 +10,22 @@ namespace OA.BLL
 {
     public class UserInfoService : BaseService<UserInfo>, IUserInfoService
     {
+        /// <summary>
+        /// 批量删除多条用户数据
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
+        public bool DeleteEntities(List<int> list)
+        {
+            //判断ID 是否在集合中存在，如果存在则查询出来
+            var userInfoList = this.CurrentDBSession.UserInfoDal.LoadEntities(u => list.Contains(u.ID));
+            foreach (var userInfo in userInfoList)
+            {
+                this.CurrentDBSession.UserInfoDal.DeleteEntity(userInfo);
+            }
+            return this.CurrentDBSession.SaveChanges();
+        }
+
         public override void SetCurrentDal()
         {
             CurrentDal = this.CurrentDBSession.UserInfoDal;

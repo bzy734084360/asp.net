@@ -55,7 +55,6 @@
                     text: '删除',
                     iconCls: 'icon-remove',
                     handler: function () {
-
                         deleteInfo();
                     }
                 }, {
@@ -75,6 +74,46 @@
                         showEditInfo();
                     }
                 }],
+            });
+        }
+        //删除数据
+        function deleteInfo() {
+            //获取所选择的行
+            var rows = $('#tt').datagrid('getSelections');
+            if (!rows || rows.length == 0) {
+                $.messager.alert("提醒", "请选择要删除的记录", "error");
+                return;
+            }
+            $.messager.confirm("提示", "确定要删除数据吗", function (r) {
+                if (r) {
+
+                    //获取要删除的记录的ID值
+                    var rowsLength = rows.length;
+                    var strId = "";
+                    for (var i = 0; i < rowsLength; i++) {
+                        strId = strId + rows[i].ID + ",";
+                    }
+                    //去掉最后一个逗号
+                    strId = strId.substr(0, strId.length - 1);
+                    //将获取的要三处的记录ID值发送到服务端
+                    $.ajax(
+                        {
+                            url: "/UserInfo/DeleteUserInfo",
+                            type: "POST",
+                            data: { "strId": strId },
+                            success: function (data) {
+                                //
+                                if (data == "ok") {
+                                    //重新加载表格不会跳转到第一页
+                                    $('#tt').datagrid('reload');
+                                }
+                                else {
+                                    $.messager.alert("提醒", "删除记录失败！", "error");
+                                }
+                            }
+                        }
+                    )
+                }
             });
         }
     </script>

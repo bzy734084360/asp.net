@@ -66,22 +66,22 @@ namespace OA.DAL
         /// <typeparam name="s"></typeparam>
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
-        /// <param name="totalCont"></param>
+        /// <param name="totalCount"></param>
         /// <param name="whereLambda"></param>
         /// <param name="orderbyLambda"></param>
         /// <param name="isAsc"></param>
         /// <returns></returns>
-        public IQueryable<T> LoadPageEntities<s>(int pageIndex, int pageSize, out int totalCont, Expression<Func<T, bool>> whereLambda, Expression<Func<T, s>> orderbyLambda, bool isAsc)
+        public IQueryable<T> LoadPageEntities<s>(int pageIndex, int pageSize, out int totalCount, Expression<Func<T, bool>> whereLambda, Expression<Func<T, s>> orderbyLambda, bool isAsc)
         {
             var temp = Db.Set<T>().Where(whereLambda);
-            totalCont = temp.Count();
+            totalCount = temp.Count();
             if (isAsc)//升序
             {
-                temp.OrderBy(orderbyLambda).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+                temp = temp.OrderBy(orderbyLambda).Skip((pageIndex - 1) * pageSize).Take(pageSize);
             }
             else
             {
-                temp.OrderByDescending(orderbyLambda).Skip((pageIndex - 1) * pageSize).Take(pageSize);
+                temp = temp.OrderByDescending(orderbyLambda).Skip((pageIndex - 1) * pageSize).Take(pageSize);
             }
             return temp;
         }
