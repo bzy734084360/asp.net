@@ -106,6 +106,7 @@
                                 if (data == "ok") {
                                     //重新加载表格不会跳转到第一页
                                     $('#tt').datagrid('reload');
+                                    //清除上次操作的历史的记录；
                                 }
                                 else {
                                     $.messager.alert("提醒", "删除记录失败！", "error");

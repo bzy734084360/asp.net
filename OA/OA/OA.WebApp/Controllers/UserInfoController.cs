@@ -52,7 +52,6 @@ namespace OA.WebApp.Controllers
             {
                 return Content("no");
             }
-            return Json(new { });
         }
 
         #endregion
