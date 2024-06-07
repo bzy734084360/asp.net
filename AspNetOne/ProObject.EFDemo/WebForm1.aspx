@@ -14,7 +14,8 @@
             <asp:Button ID="Button2" runat="server" Text="查询" OnClick="Button2_Click" />
             <asp:Button ID="Button3" runat="server" Text="Linq测试" OnClick="Button3_Click" />
             <asp:Button ID="Button4" runat="server" Text="删除" OnClick="Button4_Click" />
-            <asp:Button ID="Button5" runat="server" Text="更新" OnClick="Button5_Click" style="height: 21px" />
+            <asp:Button ID="Button5" runat="server" Text="更新" OnClick="Button5_Click" Style="height: 21px" />
+            <asp:Button ID="Button6" runat="server" Text="CodeFirst" OnClick="Button6_Click" />
         </div>
     </form>
 </body>

@@ -104,5 +104,13 @@ namespace ProObject.EFDemo
             db.Entry<UserInfo>(userInfo).State = EntityState.Modified;
             db.SaveChanges();
         }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            CodeFirstDbContext db = new CodeFirstDbContext();
+            CodeFirstDemoModel cf = new CodeFirstDemoModel() { Name = "我是ModeFirst里面新增的CodeFirst" };
+            db.CodeFirstDemoInfo.Add(cf);
+            db.SaveChanges();
+        }
     }
 }

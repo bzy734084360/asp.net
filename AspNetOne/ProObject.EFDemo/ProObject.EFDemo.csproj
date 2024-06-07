@@ -102,6 +102,8 @@
     <Content Include="WebForm3.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeFirstDbContext.cs" />
+    <Compile Include="CodeFirstDemoModel.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>ModelFirst.tt</DependentUpon>
     </Compile>

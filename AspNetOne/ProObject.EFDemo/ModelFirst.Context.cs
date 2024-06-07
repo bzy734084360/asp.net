@@ -12,20 +12,21 @@ namespace ProObject.EFDemo
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class ModelFirstContainer : DbContext
     {
         public ModelFirstContainer()
-            : base("name=ModelFirstContainer")
+            : base("name=connStr")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<OrderInfo> OrderInfo { get; set; }
+
     }
 }
