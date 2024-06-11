@@ -28,7 +28,22 @@ namespace Project.MvcStudy.Controllers
         [HttpPost]//只能接收Post请求 优先处理POST请求，大于不加特性的方法
         public ActionResult Register(UserInfo userInfo)
         {
-            return View();
+            userInfo.RegDate = DateTime.Now;
+            StudyEntities db = new StudyEntities();
+            db.UserInfo.Add(userInfo);
+            if (db.SaveChanges() > 0)
+            {
+                //return Content("添加成功");
+                //return RedirectToAction("Index");//返回当前路由下的Index页面
+                //return RedirectToAction("Index", "UserInfo");//跳转到UserInfo控制器下的Index方法
+                //return Redirect("/UserInfo/Index");//指定URL
+                return Content("ok");//AJAX方法需这样返回
+            }
+            else
+            {
+                return Content("no");
+            }
+            //return View();
         }
         /// <summary>
         /// 如果方法的参数的名称与表单元素的name的属性值一致的话，会自动填充

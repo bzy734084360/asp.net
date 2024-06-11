@@ -44,16 +44,20 @@ namespace Project.MvcStudy.Controllers
             ViewData["userInfoList"] = sb.ToString();
             ViewData["userInfoListC"] = userInfoList;
             //ViewData["userInfoList"] = userInfoList;
+            ViewData.Model = userInfoList;
             return View();
         }
         /// <summary>
-        /// 参数名只能是ID 通过URL传递过来的参数会自动赋值给该方法的此参数，但是该方法的参数名称一定要与路由格则中的定义的参数的名称一致；
+        /// 参数名只能是ID 通过URL传递过来的参数会自动赋值给该方法的此参数，但是该方法的参数名称一定要与路由格则中的定义的参数的名称一致,否则出错
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         //public ActionResult ShowDetail(int id)
         public ActionResult ShowDetail(int id)
         {
+            //request 参数是通过  url中拼接的 test.html?id=123&name=12354  改方式一般用于 多个参数
+            //路由方式编写 无法获取ID，
+            int requestId = Convert.ToInt32(Request["id"]);
             var userInfo = db.UserInfo.Where(t => t.UserId == id).FirstOrDefault();
             //ViewData["userInfo"] = userInfo;
             ViewData.Model = userInfo;

@@ -11,8 +11,11 @@
     <title>Index</title>
 </head>
 <body>
-    <div> 
-        SASDASDASDASDAS
+    <div>
+        @Html.ActionLink("注册用户", "Register", "Home")
+        @Html.ActionLink("用户列表", "Index", "UserInfo")
+        @Html.ActionLink("自带增删改查用户列表", "Index", "DefaultUserInfo")
+        @Html.ActionLink("HtmlHelper帮助类", "Index", "HtmlHelperDemo")
     </div>
 </body>
 </html>

@@ -19,7 +19,7 @@ namespace Project.WebApp
             //启动定时任务框架；
         }
         /// <summary>
-        /// 开始会话
+        /// 开始会话（用户第一次访问时调用。）
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -29,6 +29,7 @@ namespace Project.WebApp
             //使用则必须加锁解锁；
             Application.Lock();
             int count = Convert.ToInt32(Application["count"]);
+            
             count++;
             Application["count"] = count;
             Application.UnLock();

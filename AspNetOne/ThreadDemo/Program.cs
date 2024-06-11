@@ -16,7 +16,7 @@ namespace ThreadDemo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MyWebService());
+            Application.Run(new Form1());
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 @using Project.MvcStudy.Models
@@ -44,13 +45,15 @@
                         <td>item.RegDate.ToString()</td>
                     </tr>
                 }*@
-            @foreach (var item in (IQueryable<UserInfo>)ViewData["userInfoListC"])
+            @foreach (var item in ViewData.Model)
             {
                 <tr>
                     <td>@item.UserId</td>
                     <td>@item.UserName</td>
                     <td>@item.UserPwd</td>
                     <td>@item.RegDate.ToString()</td>
+                    <td>@Html.ActionLink("详情", "ShowDetail", "UserInfo", new { id = item.UserId }, new { })</td>
+                    <td>@Html.ActionLink("删除", "DeleteUser", "UserInfo", new { id = item.UserId }, new { @class = "deletes" })</td>
                 </tr>
             }
         </table>

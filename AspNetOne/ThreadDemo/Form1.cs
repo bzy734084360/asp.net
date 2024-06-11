@@ -18,7 +18,7 @@ namespace ThreadDemo
         {
             InitializeComponent();
             //比较低级的做法
-            //CheckForIllegalCrossThreadCalls = false;
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -38,14 +38,14 @@ namespace ThreadDemo
             //Thread thread = new Thread(StartCalc);
             Thread thread = new Thread(threadStart);
             //优先级（仅仅为建议。操作系统不能保证此线程优先处理）
-            //thread.Priority = ThreadPriority.Highest;
+            thread.Priority = ThreadPriority.Highest;
             //给线程起名字
-            //thread.Name = "Test";
-            //终止线程(不到万不得已，不能用)
+            thread.Name = "Test";
+            //终止线程(不到万不得已，不能用,)
             //thread.Abort();
             //提前终止线程，可增加变量来控制；
             //bool isStop = false;
-            //设置是否为后台线程()
+            //设置是否为后台线程(如果未设置，子线程未执行完成时，系统关闭后，还会弹出子线程执行的信息)
             thread.IsBackground = true;
             //标记为可运行状态；
             thread.Start();
@@ -154,7 +154,7 @@ namespace ThreadDemo
         {
             lock (obj)
             {
-                for (int i = 0; i < 3000; i++)
+                for (int i = 0; i < 2000; i++)
                 {
                     int a = Convert.ToInt32(this.textBox1.Text);
                     a++;
@@ -179,7 +179,7 @@ namespace ThreadDemo
                 }).Start();
             }
             sw.Stop();
-            this.textBox1.Text = this.textBox1.Text + "||" + sw.Elapsed.TotalMilliseconds;
+            this.textBox1.Text = this.textBox1.Text + "|线程|" + sw.Elapsed.TotalMilliseconds;
 
             sw.Reset();
             sw.Restart();
@@ -189,7 +189,7 @@ namespace ThreadDemo
             }
             sw.Stop();
 
-            this.textBox1.Text = this.textBox1.Text + "||" + sw.Elapsed.TotalMilliseconds;
+            this.textBox1.Text = this.textBox1.Text + "|线程池|" + sw.Elapsed.TotalMilliseconds;
 
         }
 

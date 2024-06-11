@@ -28,9 +28,12 @@ namespace ProObject.EFDemo
             {
                 db = HttpContext.Current.Items["db"] as StudyEntities;
             }
+            //linq方式
             var userInfoList = from u in db.UserInfo
                                where u.UserId == 1039
                                select new { UName = u.UserName, UPwd = u.UserPwd };
+            //lambda 查询
+            //var userInfoList db.UserInfo.Where(t => t.UserId == 1039);
             foreach (var item in userInfoList)
             {
                 Response.Write(item.UName);
@@ -49,11 +52,11 @@ namespace ProObject.EFDemo
             int pageSize = 2;
             //排序OrderBy 分页 Skip(跳过几条数据)Take(取出几条数据)
             var userInfoList = db.UserInfo.Where(t => t.UserId > 0).OrderByDescending(u => u.UserId).ThenByDescending(t => t.UserPwd).Skip((pageIndex - 1) * pageIndex).Take(pageSize);
-
             //var userInfoList = (from u in db.UserInfo
             //                    where u.UserId > 0
             //                    orderby u.UserId ascending//descending降序
             //                    select u).Skip((pageIndex - 1) * pageIndex).Take(pageSize);//分页与lambda表达式一样的处理
+            //linq与lambda 方式最后的排序都是对IQueryable 数据类型处理
             foreach (var item in userInfoList)
             {
                 Response.Write(item.UserName);

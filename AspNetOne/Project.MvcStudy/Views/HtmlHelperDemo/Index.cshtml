@@ -33,6 +33,19 @@
             <option value="3">C</option>
             <option value="4">D</option>
         </select>
+        <select>
+            @foreach (var item in (List<SelectListItem>)ViewData["city"])
+            {
+                if (item.Selected)
+                {
+                    <option value="@item.Value" selected="selected">@item.Text</option>
+                }
+                else
+                {
+                    <option value="@item.Value">@item.Text</option>
+                }
+            }
+        </select>
         <hr />
         男 @Html.RadioButton("Gender", "0", false, new { id = "man" })
         女 @Html.RadioButton("Gender", "1", false, new { id = "woman" })

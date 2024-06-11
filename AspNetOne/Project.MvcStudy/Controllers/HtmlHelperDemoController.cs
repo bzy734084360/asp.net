@@ -16,7 +16,6 @@ namespace Project.MvcStudy.Controllers
         // GET: HtmlHelperDemo
         public ActionResult Index()
         {
-
             List<SelectListItem> list = new List<SelectListItem>() {
                 new SelectListItem { Text = "北京", Value = "1" },
                 new SelectListItem{Text="济南",Value="2",Selected=true}

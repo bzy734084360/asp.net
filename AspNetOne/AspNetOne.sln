@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFistDemo", "CodeFistDem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.MvcStudy", "Project.MvcStudy\Project.MvcStudy.csproj", "{2D06C979-0331-48EF-A55D-2322334A1D11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCStudyReview", "MVCStudyReview\MVCStudyReview.csproj", "{164A7935-7D11-4144-851D-E9413BE0DBD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCStudyReview.Tests", "MVCStudyReview.Tests\MVCStudyReview.Tests.csproj", "{ABFA6DA6-C77C-4D7F-8745-07B84FAC2EC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,14 @@ Global
 		{2D06C979-0331-48EF-A55D-2322334A1D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D06C979-0331-48EF-A55D-2322334A1D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D06C979-0331-48EF-A55D-2322334A1D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{164A7935-7D11-4144-851D-E9413BE0DBD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{164A7935-7D11-4144-851D-E9413BE0DBD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{164A7935-7D11-4144-851D-E9413BE0DBD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{164A7935-7D11-4144-851D-E9413BE0DBD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABFA6DA6-C77C-4D7F-8745-07B84FAC2EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABFA6DA6-C77C-4D7F-8745-07B84FAC2EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABFA6DA6-C77C-4D7F-8745-07B84FAC2EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABFA6DA6-C77C-4D7F-8745-07B84FAC2EC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
